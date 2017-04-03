@@ -22,4 +22,8 @@ public interface Deque<T>{
     
     //returns _size of deque
     public int size();
+
+    //returns boolean indicating wheter or not the deque is empty
+    public boolean isEmpty();
 }
+

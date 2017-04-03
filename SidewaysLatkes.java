@@ -40,9 +40,11 @@ public class SidewaysLatkes<T> implements Deque{
 	    return addFront();
 	}
     }
-	
+    
     public boolean addBack(T addVal){
-	if(_size == 0){
+	if(_size >= 50){
+	    throw new StackOverflowError();
+	} else if(_size == 0){
 	    addFront();
 	} else {
 	    DLLNode newNode = new DLLNode(addVal, _end, null);
@@ -53,6 +55,13 @@ public class SidewaysLatkes<T> implements Deque{
 	return true;
     }
 
+    public boolean addBackCareful(T addVal){
+	if(_size >= 50){
+	    return false;
+	} else {
+	    return addBack();
+	}
+    }
 
     public T removeFront(){
 	if(_size == 0){

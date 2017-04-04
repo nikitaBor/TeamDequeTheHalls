@@ -3,14 +3,14 @@
 //LAB #02: All Hands on Deque! 
 //Due: 2017-04-04 
 
-public class SidewaysLatkes<T> implements Deque{
+public class SidewaysLatkes<T> implements Deque<T>{
     private DLLNode<T> _front;
     private DLLNode<T> _end;
     private int _size;
     
     public SidewaysLatkes(){
-        _front = new DLLNode(null,null,null);
-        _end = new DLLNode(null,null,null);
+        _front = new DLLNode<T>(null,null,null);
+        _end = new DLLNode<T>(null,null,null);
         _front.setNext(_end);
         _end.setPrev(_front);
         _size = 0;
@@ -20,12 +20,12 @@ public class SidewaysLatkes<T> implements Deque{
 	if(_size >= 50){
 	    throw new StackOverflowError();
 	} else if(isEmpty()){
-	    DLLNode newNode = new DLLNode(addVal, null, _front);
+	    DLLNode<T> newNode = new DLLNode<T>(addVal, null, _front);
 	    _front = newNode;
 	    _end = newNode;
 	    _size += 1;
 	} else {
-	    DLLNode newNode = new DLLNode(addVal, null, _front);
+	    DLLNode<T> newNode = new DLLNode<T>(addVal, null, _front);
 	    _front = newNode;
 	    _front.getNext().setPrev(newNode);
 	    _size += 1;
@@ -37,7 +37,7 @@ public class SidewaysLatkes<T> implements Deque{
 	if(_size >= 50){
 	    return false;
 	} else {
-	    return addFront();
+	    return addFront(addVal);
 	}
     }
     
@@ -45,9 +45,9 @@ public class SidewaysLatkes<T> implements Deque{
 	if(_size >= 50){
 	    throw new StackOverflowError();
 	} else if(isEmpty()){
-	    addFront();
+	    addFront(addVal);
 	} else {
-	    DLLNode newNode = new DLLNode(addVal, _end, null);
+	    DLLNode<T> newNode = new DLLNode<T>(addVal, _end, null);
 	    _end = newNode;
 	    _end.getPrev().setNext(newNode);
 	    _size += 1;
@@ -59,7 +59,7 @@ public class SidewaysLatkes<T> implements Deque{
 	if(_size >= 50){
 	    return false;
 	} else {
-	    return addBack();
+	    return addBack(addVal);
 	}
     }
 
@@ -132,7 +132,7 @@ public class SidewaysLatkes<T> implements Deque{
         return _size == 0;
     }
     public static void main(String[] args){
-        SidewaysLatkes<Integer> auntJemima = new SidewaysLatkes();
+        SidewaysLatkes<Integer> ace = new SidewaysLatkes<Integer>();
         
     }
 }

@@ -20,14 +20,14 @@ public class SidewaysLatkes<T> implements Deque<T>{
 	if(_size >= 50){
 	    throw new StackOverflowError();
 	} else if(isEmpty()){
-	    DLLNode<T> newNode = new DLLNode<T>(addVal, null, _front);
-	    _front = newNode;
-	    _end = newNode;
+	    DLLNode<T> newNode = new DLLNode<T>(addVal, _front, _end);
+	    _front.setNext(newNode);
+	    _end.setPrev(newNode);
 	    _size += 1;
 	} else {
-	    DLLNode<T> newNode = new DLLNode<T>(addVal, null, _front);
-	    _front = newNode;
+	    DLLNode<T> newNode = new DLLNode<T>(addVal, _front, _front.getNext());
 	    _front.getNext().setPrev(newNode);
+	    _front.setNext(newNode);
 	    _size += 1;
 	}
 	return true;
@@ -47,9 +47,9 @@ public class SidewaysLatkes<T> implements Deque<T>{
 	} else if(isEmpty()){
 	    addFront(addVal);
 	} else {
-	    DLLNode<T> newNode = new DLLNode<T>(addVal, _end, null);
-	    _end = newNode;
+	    DLLNode<T> newNode = new DLLNode<T>(addVal, _end.getPrev(), _end);
 	    _end.getPrev().setNext(newNode);
+	    _end.setPrev(newNode);
 	    _size += 1;
 	}
 	return true;
@@ -71,6 +71,7 @@ public class SidewaysLatkes<T> implements Deque<T>{
 	    T retVal = _front.getNext().getCargo();
 	    _front.setNext(_front.getNext().getNext());
 	    _front.getNext().setPrev(_front);
+        _size -= 1;
 	    return retVal;
 	}
     }
@@ -91,6 +92,7 @@ public class SidewaysLatkes<T> implements Deque<T>{
 	    T retVal = _end.getPrev().getCargo();
 	    _end.setPrev(_end.getPrev().getPrev());
 	    _end.getPrev().setNext(_end);
+        _size -= 1;
 	    return retVal;
 	}
     }
@@ -105,7 +107,7 @@ public class SidewaysLatkes<T> implements Deque<T>{
     public T peekFront(){
 	if (isEmpty()){
 	    throw new NullPointerException();}
-	else { return _front.getCargo();}
+	else { return _front.getNext().getCargo();}
     }
 
     public T peekFrontCareful(){
@@ -133,6 +135,15 @@ public class SidewaysLatkes<T> implements Deque<T>{
     }
     public static void main(String[] args){
         SidewaysLatkes<Integer> ace = new SidewaysLatkes<Integer>();
+        ace.addFront(1);
+        ace.addFront(2);
+
+        ace.addBack(3);
+        System.out.println(ace.peekBack());
+        System.out.println(ace.peekFront());
+        System.out.println(ace.removeBack());
+        System.out.println(ace.removeBack());
+        System.out.println(ace.removeFront());
         
     }
 }

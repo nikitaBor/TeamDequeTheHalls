@@ -6,9 +6,9 @@ public interface Deque<T>{
     public boolean addBackCareful(T addVal);
     //
     public T removeFront();
-    public T removeFrontCarefully();
+    public T removeFrontCareful();
     public T removeBack();
-    public T removeBackCarefully();
+    public T removeBackCareful();
     */
     /*accessors to obtain the front and end of deque
       if deque is empty, then peekFront() and peekBack()
@@ -16,9 +16,9 @@ public interface Deque<T>{
       and peekBackCarefully() return null    
     */
     public T peekFront();
-    public T peekFrontCarefully();
+    public T peekFrontCareful();
     public T peekBack();
-    public T peekBackCarefully();
+    public T peekBackCareful();
     
     //returns _size of deque
     public int size();
@@ -26,4 +26,3 @@ public interface Deque<T>{
     //returns boolean indicating wheter or not the deque is empty
     public boolean isEmpty();
 }
-

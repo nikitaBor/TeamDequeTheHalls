@@ -80,7 +80,7 @@ public class SidewaysLatkes<T> implements Deque{
 	    return null;
 	}
 	else{
-	    removeFront();
+	    return removeFront();
 	}
     }
     public T removeBack(){
@@ -99,7 +99,7 @@ public class SidewaysLatkes<T> implements Deque{
 	    return null;
 	}
 	else{
-	    removeBack();
+	    return removeBack();
 	}
     }
     public T peekFront(){
@@ -108,7 +108,7 @@ public class SidewaysLatkes<T> implements Deque{
 	else { return _front.getCargo();}
     }
 
-    public T peekFrontCarefully(){
+    public T peekFrontCareful(){
 	if (isEmpty()){
 	    return null;}
 	else { return _front.getNext().getCargo();}
@@ -120,7 +120,7 @@ public class SidewaysLatkes<T> implements Deque{
 	else { return _end.getPrev().getCargo();}
     }
 
-    public T peekBackCarefully(){
+    public T peekBackCareful(){
 	if (isEmpty()){
 	    return null;}
 	else { return _end.getPrev().getCargo();}
@@ -130,5 +130,9 @@ public class SidewaysLatkes<T> implements Deque{
     }
     public boolean isEmpty(){
         return _size == 0;
+    }
+    public static void main(String[] args){
+        SidewaysLatkes<Integer> auntJemima = new SidewaysLatkes();
+        
     }
 }

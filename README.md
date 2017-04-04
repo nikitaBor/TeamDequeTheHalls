@@ -8,4 +8,4 @@ We also renamed certain methods whose names we thought were not clearly indicati
 * peek()  -> peekCarefully() -> null
 * poll() -> removeCarefully() -> null
 ## DLLNode
-We chose a doubly-linked base architecture because removing and adding from a DLLNode is O(1). This is because when removing and adding we can change where arrows point to and not shift anything. ArrayList and array-based architecture would be O(n) because after removing the element, we'd have to shift the other elements. 
+We chose a doubly-linked base architecture because removing and adding from a DLLNode is O(1). This is because when removing and adding we can change where arrows point to and not shift anything. ArrayList and array-based architecture would be O(n) because after removing and adding elements, we'd have to shift the other elements. 

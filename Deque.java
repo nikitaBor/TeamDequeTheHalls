@@ -9,7 +9,6 @@ public interface Deque<T>{
     public T removeFrontCareful();
     public T removeBack();
     public T removeBackCareful();
-    */
     /*accessors to obtain the front and end of deque
       if deque is empty, then peekFront() and peekBack()
       throw NullPointerExceptions whereas peekFrontCarefully()

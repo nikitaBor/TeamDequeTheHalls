@@ -19,7 +19,7 @@ public class SidewaysLatkes<T> implements Deque{
     public boolean addFront(T addVal){
 	if(_size >= 50){
 	    throw new StackOverflowError();
-	} else if(_size == 0){
+	} else if(isEmpty()){
 	    DLLNode newNode = new DLLNode(addVal, null, _front);
 	    _front = newNode;
 	    _end = newNode;
@@ -44,7 +44,7 @@ public class SidewaysLatkes<T> implements Deque{
     public boolean addBack(T addVal){
 	if(_size >= 50){
 	    throw new StackOverflowError();
-	} else if(_size == 0){
+	} else if(isEmpty()){
 	    addFront();
 	} else {
 	    DLLNode newNode = new DLLNode(addVal, _end, null);
@@ -64,7 +64,7 @@ public class SidewaysLatkes<T> implements Deque{
     }
 
     public T removeFront(){
-	if(_size == 0){
+	if(isEmpty()){
 	    throw new NullPointerException();
 	}
 	else{
@@ -76,7 +76,7 @@ public class SidewaysLatkes<T> implements Deque{
     }
 
     public T removeFrontCareful(){
-	if(_size == 0){
+	if(isEmpty()){
 	    return null;
 	}
 	else{
@@ -87,7 +87,7 @@ public class SidewaysLatkes<T> implements Deque{
 	}
     }
     public T removeBack(){
-	if(_size == 0){
+	if(isEmpty()){
 	    throw new NullPointerException();
 	}
 	else{
@@ -98,7 +98,7 @@ public class SidewaysLatkes<T> implements Deque{
 	}
     }
     public T removeBackCareful(){
-	if(_size == 0){
+	if(isEmpty()){
 	    return null;
 	}
 	else{
@@ -109,29 +109,32 @@ public class SidewaysLatkes<T> implements Deque{
 	}
     }
     public T peekFront(){
-	if (_size == 0){
+	if (isEmpty()){
 	    throw new NullPointerException();}
 	else { return _front.getCargo();}
     }
 
     public T peekFrontCarefully(){
-	if (_size == 0){
+	if (isEmpty()){
 	    return null;}
 	else { return _front.getNext().getCargo();}
     }
     
     public T peekBack(){
-	if (_size == 0){
+	if (isEmpty()){
 	    throw new NullPointerException();}
 	else { return _end.getPrev().getCargo();}
     }
 
     public T peekBackCarefully(){
-	if (_size == 0){
+	if (isEmpty()){
 	    return null;}
 	else { return _end.getPrev().getCargo();}
     }
     public int size(){
         return _size;
+    }
+    public boolean isEmpty(){
+        return _size == 0;
     }
 }

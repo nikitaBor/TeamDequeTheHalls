@@ -9,3 +9,5 @@ We also renamed certain methods whose names we thought were not clearly indicati
 * poll() -> removeCarefully() -> null
 ## DLLNode
 We chose a doubly-linked base architecture because removing and adding from a DLLNode is O(1). This is because when removing and adding we can change where arrows point to and not shift anything. ArrayList and array-based architecture would be O(n) because after removing and adding elements, we'd have to shift the other elements. 
+## Updates
+Mago sent a driver file that made us realize that we were lacking a toString method, after it was called in Mago's driver. We implemented a toString() method in order to accomplish this and the rest of the test case worked fine.

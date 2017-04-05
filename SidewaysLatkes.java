@@ -133,6 +133,15 @@ public class SidewaysLatkes<T> implements Deque<T>{
     public boolean isEmpty(){
         return _size == 0;
     }
+    public String toString(){
+        String retStr = "";
+        DLLNode pointer = _front.getNext();
+        for(int i = 0; i < size(); i += 1){
+            retStr += pointer.getCargo() + ", ";
+            pointer = pointer.getNext();
+        }
+        return retStr;
+    }
     public static void main(String[] args){
         SidewaysLatkes<Integer> ace = new SidewaysLatkes<Integer>();
         ace.addFront(1);

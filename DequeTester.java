@@ -9,43 +9,43 @@ public class DequeTester {
     public static void main ( String[] args ) {
 
 	//Instantiate new Deque
-	Deque<String> q = new SidewaysLatkes<String>();
+	SidewaysLatkes q = new SidewaysLatkes<String>();
 	
 	System.out.println("\nTesting enqueue() from front end...");
-	q.addFirst("uno");
-	q.addFirst("dos");
-	q.addFirst("tres");
+	q.addFront("uno");
+	q.addFront("dos");
+	q.addFront("tres");
 	//should print: tres dos uno
 	System.out.println(q);
 
 	//should print: yi er san
 	System.out.println("\nTesting enqueue() from back end...");
-	q.addLast("yi");
-	q.addLast("er");
-	q.addLast("san");
+	q.addBack("yi");
+	q.addBack("er");
+	q.addBack("san");
 	System.out.println(q);//show how it looks at this point
      
-	System.out.println("\nTesting get() methods...");
-	System.out.println( "First: " );
-	System.out.println( q.getFirst() );//tres
-	System.out.println( "Last: " );
-	System.out.println( q.getLast() );//san
+	System.out.println("\nTesting peek() methods...");
+	System.out.println( "Front: " );
+	System.out.println( q.peekFront() );//tres
+	System.out.println( "Back: " );
+	System.out.println( q.peekBack() );//san
 	
 	System.out.println("\nnow dequeuing from front end...");
-	System.out.println( "First: " );
-	System.out.println( q.removeFirst() );//tres
+	System.out.println( "Front: " );
+	System.out.println( q.removeFront() );//tres
 	System.out.println( "Second: " );
-	System.out.println( q.removeFirst() );//dos
+	System.out.println( q.removeFront() );//dos
 	System.out.println( "Third: " );
-	System.out.println( q.removeFirst() );//uno
+	System.out.println( q.removeFront() );//uno
 
 	System.out.println("\nnow dequeuing from back end...");
-	System.out.println( "First: " );
-	System.out.println( q.removeLast() );//san
+	System.out.println( "Front: " );
+	System.out.println( q.removeBack() );//san
 	System.out.println( "Second: " );
-	System.out.println( q.removeLast() );//er
+	System.out.println( q.removeBack() );//er
 	System.out.println( "Third: " );
-	System.out.println( q.removeLast() );//yi
+	System.out.println( q.removeBack() );//yi
 
     }//end main method
 
